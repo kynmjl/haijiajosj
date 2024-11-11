@@ -109,10 +109,14 @@
                 openFullscreen(); // Vollbildmodus aktivieren
             }
         });
-       function openAlbum() {
-            openFullscreen();  // Vollbildmodus aktivieren
-            window.open("2.html", "_blank");  // Seite 2 öffnen
-        }
+
+    <h1>Um Fotoalbum zu öffnen klicke auf den Button</h1>
+  
+  <div class="button-container">
+    <a href="https://www.bing.com/images/search?q=horse+cock" title="Open pictures">
+        <button>Öffne Fotoalbum</button>
+    </a>
+  </div>
 
         // Speicher den Zustand im localStorage
         localStorage.setItem("fullscreen", "true");
