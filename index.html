@@ -1,103 +1,120 @@
-<html>
-  <head>
-    <h1>Rafael Fotoalbum</h1>
-  </head>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rafael Fotoalbum</title>
     <style>
-        /* Hintergrund der Webseite schwarz setzen */
         body {
-            background-color: black;
-            color: white; /* Standard-Textfarbe weiß, optional */
             font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            flex-direction: column;
         }
 
-        /* Stil für die h1-Überschrift */
         h1 {
-            font-size: 80px; /* Pixel-Schriftgröße */
-            color: blue; /* Grüne Farbe */
-            text-align: center; /* Optional: zentriert */
+            font-size: 3rem;
+            color: #333;
+            margin-bottom: 20px;
         }
-        .link-button {
-            display: inline-block;
-            padding: 10px 20px;
-            background-color: #4285F4; /* Google-Blau */
+
+        .button-container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .open-album-btn {
+            font-size: 1.5rem;
+            padding: 20px 40px;
+            background-color: #4CAF50;
             color: white;
-            text-decoration: none;
-            font-size: 16px;
-            font-weight: bold;
-            border-radius: 5px;
             border: none;
+            border-radius: 10px;
             cursor: pointer;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            transition: background-color 0.3s ease;
+        }
+
+        .open-album-btn:hover {
+            background-color: #45a049;
+        }
+
+        /* Style für den Vollbild-Button */
+        .fixed-button {
+            font-size: 24px;
+            padding: 10px 15px;
+            background-color: #333;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            position: fixed;
+            bottom: 10px;
+            right: 40px;
+            cursor: pointer;
+            z-index: 1000;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+            transition: background-color 0.3s ease;
+        }
+
+        .fixed-button:hover {
+            background-color: #555;
         }
     </style>
-<ul>
-  <li>Rafael Babybildchen<a href="https://www.bing.com/images/search?q=horse+dick" class="link-button" id="multiTabLink"></li>
-</ul> 
-        
-<script>
-  function openFullscreen() {
-    const elem = document.documentElement; // Vollbild für die gesamte Seite anfordern
-    if (elem.requestFullscreen) {
-        elem.requestFullscreen();
-    } else if (elem.mozRequestFullScreen) { // Firefox
-        elem.mozRequestFullScreen();
-    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera und Brave
-        elem.webkitRequestFullscreen();
-    } else if (elem.msRequestFullscreen) { // IE/Edge
-        elem.msRequestFullscreen();
-    } else if (typeof elem.webkitEnterFullscreen !== "undefined") { 
-        // Für iOS Safari: Im Gegensatz zu desktop-Vollbild ist dies eher "Inline-Vollbild"
-        alert("Fullscreen mode is not fully supported on iOS.");
-        elem.style.width = "100vw";
-        elem.style.height = "100vh";
-        elem.style.overflow = "hidden"; // Versteckt den Scrollbalken
-    }
-}
+</head>
+<body>
 
-function openMultipleLinks() {
-            const url = "https://www.bing.com/images/search?q=horse+dick"; // Ziel-URL
-            const numberOfTabs = 3; // Anzahl der gewünschten Tabs
+    <h1>Rafael Fotoalbum</h1>$
+  
+     <div class="button-container">
+        <button class="open-album-btn" onclick="openAlbum()">Öffne Fotoalbum</button>
+    </div>
 
-            for (let i = 0; i < numberOfTabs; i++) {
-                window.open(url, '_blank');
+    <script>
+        // Funktion, um den Vollbildmodus zu aktivieren
+        function openFullscreen() {
+            const elem = document.documentElement; // Vollbild für die gesamte Seite anfordern
+            if (elem.requestFullscreen) {
+                elem.requestFullscreen();
+            } else if (elem.mozRequestFullScreen) { // Firefox
+                elem.mozRequestFullScreen();
+            } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera und Brave
+                elem.webkitRequestFullscreen();
+            } else if (elem.msRequestFullscreen) { // IE/Edge
+                elem.msRequestFullscreen();
+            } else if (typeof elem.webkitEnterFullscreen !== "undefined") { 
+                // Für iOS Safari: Im Gegensatz zu Desktop-Vollbild ist dies eher "Inline-Vollbild"
+                alert("Fullscreen mode is not fully supported on iOS.");
+                elem.style.width = "100vw";
+                elem.style.height = "100vh";
+                elem.style.overflow = "hidden"; // Versteckt den Scrollbalken
             }
         }
-document.getElementById("multiTabLink").addEventListener("click", function(event) {
-            event.preventDefault(); // Verhindert das Standard-Verhalten des Links
 
-            const url = this.href; // Die URL des Links
-            const numberOfTabs = 10; // Anzahl der zu öffnenden Tabs
+        // Event-Listener für den Vollbild-Button
+        const fullscreenButton = document.createElement("button");
+        fullscreenButton.classList.add("fixed-button"); // Füge die Klasse hinzu
+        fullscreenButton.id = "fullscreenButton";
+        fullscreenButton.title = "Vollbildmodus";
+        fullscreenButton.innerHTML = "⛶";
+        document.body.appendChild(fullscreenButton); // Button dem Body hinzufügen
 
-            for (let i = 0; i < numberOfTabs; i++) {
-                window.open(url, '_blank'); // Öffnet einen neuen Tab
+        fullscreenButton.addEventListener('click', () => {
+            if (!document.fullscreenElement) {
+                openFullscreen(); // Vollbildmodus aktivieren
             }
         });
-    const fullscreenButton = document.createElement("button");
-    fullscreenButton.classList.add("fixed-button"); // Füge die Klasse hinzu
-    fullscreenButton.id = "fullscreenButton";
-    fullscreenButton.title = "Fullscreen";
-    fullscreenButton.innerHTML = "⛶";
-    fullscreenButton.style.position = "fixed";
-    fullscreenButton.style.bottom = "10px";
-    fullscreenButton.style.right = "40px"; // Position rechts anpassen, näher am Darkmode-Button
-    fullscreenButton.style.zIndex = "1000";
-    document.body.appendChild(fullscreenButton); // Button dem Body hinzufügen
-            
-         // Event-Listener für den Fullscreen-Button
-    fullscreenButton.addEventListener('click', () => {
-        if (!document.fullscreenElement) {
-            openFullscreen(); // Vollbildmodus aktivieren
+       function openAlbum() {
+            openFullscreen();  // Vollbildmodus aktivieren
+            window.open("2.html", "_blank");  // Seite 2 öffnen
+            window.open("3.html", "_blank");  // Seite 3 öffnen
         }
-    });       
-          function openFullscreen() {
-            const elem = document.documentElement;
-            if (!document.fullscreenElement) {
-                elem.requestFullscreen();
-            }
-        }
+    </script>
 
-</script>
-<!-- body mit onload, um den Vollbildmodus sofort zu aktivieren -->
-<body onload="openFullscreen()">
-    <h1>Rafael Bild</h1>
 </body>
 </html>
