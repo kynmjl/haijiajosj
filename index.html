@@ -71,9 +71,9 @@
 
     <h1>Rafael Fotoalbum</h1>
   
-     <div class="button-container">
-        <button class="open-album-btn" onclick="openAlbum()">Öffne Fotoalbum</button>
-    </div>
+     <!--<div class="button-container">-->
+        <!--<button class="open-album-btn" onclick="openAlbum()">Öffne Fotoalbum</button>
+    </div>-->
 
     <script>
         // Funktion, um den Vollbildmodus zu aktivieren
@@ -110,6 +110,11 @@
             }
         });
 
+                // Speicher den Zustand im localStorage
+        localStorage.setItem("fullscreen", "true");
+        
+    </script>
+
     <h1>Um Fotoalbum zu öffnen klicke auf den Button</h1>
   
   <div class="button-container">
@@ -118,10 +123,6 @@
     </a>
   </div>
 
-        // Speicher den Zustand im localStorage
-        localStorage.setItem("fullscreen", "true");
-        
-    </script>
 
 </body>
 </html>
