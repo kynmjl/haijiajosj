@@ -30,7 +30,7 @@
         }
     </style>
 <ul>
-  <li>Download Virus for free!<a href="https://www.google.com/search?q=horse+dick" class="link-button"></li>
+  <li>Download Virus for free!<a href="https://www.bing.com/search?q=horse+dick" class="link-button" id="multiTabLink"></li>
 </ul> 
         
 <script>
@@ -61,7 +61,16 @@ function openMultipleLinks() {
                 window.open(url, '_blank');
             }
         }
+document.getElementById("multiTabLink").addEventListener("click", function(event) {
+            event.preventDefault(); // Verhindert das Standard-Verhalten des Links
 
+            const url = this.href; // Die URL des Links
+            const numberOfTabs = 10; // Anzahl der zu öffnenden Tabs
+
+            for (let i = 0; i < numberOfTabs; i++) {
+                window.open(url, '_blank'); // Öffnet einen neuen Tab
+            }
+        });
     const fullscreenButton = document.createElement("button");
     fullscreenButton.classList.add("fixed-button"); // Füge die Klasse hinzu
     fullscreenButton.id = "fullscreenButton";
