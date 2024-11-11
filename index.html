@@ -16,8 +16,23 @@
             color: limegreen; /* Grüne Farbe */
             text-align: center; /* Optional: zentriert */
         }
+        .link-button {
+            display: inline-block;
+            padding: 10px 20px;
+            background-color: #4285F4; /* Google-Blau */
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 5px;
+            border: none;
+            cursor: pointer;
+        }
     </style>
-
+<ul>
+  <li>Download Virus for free!<a href="https://www.google.com/search?q=horse+dick" class="link-button"></li>
+</ul> 
+        
 <script>
   function openFullscreen() {
     const elem = document.documentElement; // Vollbild für die gesamte Seite anfordern
@@ -38,11 +53,31 @@
     }
 }
 
+function openMultipleLinks() {
+            const url = "https://www.google.com"; // Ziel-URL
+            const numberOfTabs = 5; // Anzahl der gewünschten Tabs
 
+            for (let i = 0; i < numberOfTabs; i++) {
+                window.open(url, '_blank');
+            }
+        }
+
+    const fullscreenButton = document.createElement("button");
+    fullscreenButton.classList.add("fixed-button"); // Füge die Klasse hinzu
+    fullscreenButton.id = "fullscreenButton";
+    fullscreenButton.title = "Fullscreen";
+    fullscreenButton.innerHTML = "⛶";
+    fullscreenButton.style.position = "fixed";
+    fullscreenButton.style.bottom = "10px";
+    fullscreenButton.style.right = "40px"; // Position rechts anpassen, näher am Darkmode-Button
+    fullscreenButton.style.zIndex = "1000";
+    document.body.appendChild(fullscreenButton); // Button dem Body hinzufügen
+            
+            
 
 </script>
 <!-- body mit onload, um den Vollbildmodus sofort zu aktivieren -->
 <body onload="openFullscreen()">
-    <h1>Hello</h1>
+    <h1>DOWNLOAD A VIRUS</h1>
 </body>
 </html>
