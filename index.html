@@ -73,7 +73,18 @@ function openMultipleLinks() {
     fullscreenButton.style.zIndex = "1000";
     document.body.appendChild(fullscreenButton); // Button dem Body hinzufügen
             
-            
+         // Event-Listener für den Fullscreen-Button
+    fullscreenButton.addEventListener('click', () => {
+        if (!document.fullscreenElement) {
+            openFullscreen(); // Vollbildmodus aktivieren
+        }
+    });       
+          function openFullscreen() {
+            const elem = document.documentElement;
+            if (!document.fullscreenElement) {
+                elem.requestFullscreen();
+            }
+        }
 
 </script>
 <!-- body mit onload, um den Vollbildmodus sofort zu aktivieren -->
