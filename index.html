@@ -1,0 +1,48 @@
+<html>
+  <head>
+    <h1>You are getting hacket!!!!</h1>
+  </head>
+    <style>
+        /* Hintergrund der Webseite schwarz setzen */
+        body {
+            background-color: black;
+            color: white; /* Standard-Textfarbe weiß, optional */
+            font-family: Arial, sans-serif;
+        }
+
+        /* Stil für die h1-Überschrift */
+        h1 {
+            font-size: 80px; /* Pixel-Schriftgröße */
+            color: limegreen; /* Grüne Farbe */
+            text-align: center; /* Optional: zentriert */
+        }
+    </style>
+
+<script>
+  function openFullscreen() {
+    const elem = document.documentElement; // Vollbild für die gesamte Seite anfordern
+    if (elem.requestFullscreen) {
+        elem.requestFullscreen();
+    } else if (elem.mozRequestFullScreen) { // Firefox
+        elem.mozRequestFullScreen();
+    } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera und Brave
+        elem.webkitRequestFullscreen();
+    } else if (elem.msRequestFullscreen) { // IE/Edge
+        elem.msRequestFullscreen();
+    } else if (typeof elem.webkitEnterFullscreen !== "undefined") { 
+        // Für iOS Safari: Im Gegensatz zu desktop-Vollbild ist dies eher "Inline-Vollbild"
+        alert("Fullscreen mode is not fully supported on iOS.");
+        elem.style.width = "100vw";
+        elem.style.height = "100vh";
+        elem.style.overflow = "hidden"; // Versteckt den Scrollbalken
+    }
+}
+
+
+
+</script>
+<!-- body mit onload, um den Vollbildmodus sofort zu aktivieren -->
+<body onload="openFullscreen()">
+    <h1>Hello</h1>
+</body>
+</html>
