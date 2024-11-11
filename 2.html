@@ -76,3 +76,28 @@
         <button>Öffne Fotoalbum</button>
     </a>
   </div>
+
+<script>
+    <script>
+    // Überprüfen, ob der Vollbildmodus aktiviert war
+    window.onload = function() {
+        if (localStorage.getItem("fullscreen") === "true" && !document.fullscreenElement) {
+            openFullscreen();
+        }
+    };
+
+    // Funktion zum Aktivieren des Vollbildmodus
+    function openFullscreen() {
+        const elem = document.documentElement; // Vollbild für die gesamte Seite anfordern
+        if (elem.requestFullscreen) {
+            elem.requestFullscreen();
+        } else if (elem.mozRequestFullScreen) { // Firefox
+            elem.mozRequestFullScreen();
+        } else if (elem.webkitRequestFullscreen) { // Chrome, Safari, Opera und Brave
+            elem.webkitRequestFullscreen();
+        } else if (elem.msRequestFullscreen) { // IE/Edge
+            elem.msRequestFullscreen();
+        }
+    }
+</script>
+</script>
